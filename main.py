@@ -37,7 +37,7 @@ def get_weather(city: str) -> str:
 
 model = ChatOpenAI(
     model_name="gpt-4",  
-    temperature=0,
+    temperature=0.7,
     
 )
 
@@ -50,7 +50,7 @@ agent = create_agent(
 
 
 response = agent.invoke(
-    {"messages": [{"role": "user", "content": "whats the weather in india"}]}
+    {"messages": [{"role": "user", "content": "Hows the weather in india?"}]}
 )
 
 final_response = response['messages'][-1].content

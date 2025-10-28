@@ -5,6 +5,8 @@ from langchain.agents import create_agent
 from langchain.agents.structured_output import ToolStrategy
 
 
+
+
 load_dotenv()
 
 class UserInfo(BaseModel):
@@ -22,5 +24,6 @@ agent = create_agent(
 )
 
 result =  agent.invoke({"messages":[{"role":"user", "content" : "Extract userinfo from : Guru, 919380735764,JP Nagar Banglore, India"}]})
+final_response = result['messages'][-1].content
 
-print(result)
+print(final_response)
