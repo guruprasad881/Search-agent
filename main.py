@@ -29,26 +29,26 @@ from langchain.agents import create_agent
 
 load_dotenv()
 
-# Define a simple tool
+
 def get_weather(city: str) -> str:
     """Get weather for a given city."""
     return f"It's always sunny in {city}! and today its 30 degrees Celsius."
 
-# Initialize the GPT-4 model
+
 model = ChatOpenAI(
-    model_name="gpt-4",  # Use GPT-4
+    model_name="gpt-4",  
     temperature=0,
     
 )
 
-# Create the agent
+
 agent = create_agent(
     model=model,
     tools=[get_weather],
     system_prompt="You are a weather agent that always gives temperature in Celsius.",
 )
 
-# Run the agent
+
 response = agent.invoke(
     {"messages": [{"role": "user", "content": "whats the weather in india"}]}
 )
